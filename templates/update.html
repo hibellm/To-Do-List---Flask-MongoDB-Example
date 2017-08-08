@@ -1,16 +1,6 @@
-<html>
-	<head>
-		<title>{{t}}</title>
-	</head>
-	<style>	
-		h1{
-			font-family:"Arial Black", Gadget, sans-serif;
-		}
-		body{
-			background-color:white;
-		}
-	</style>
-<body>
+{% extends 'layout.html' %}
+
+{% block body %}
 	<h1>{{h}}</h1>
 	<hr>
 	<h3>Update tasks with a reference</h3>
@@ -34,9 +24,8 @@
 	</tr>
 	</table>
 	{% endfor %}
-		<button type="submit"> Update Task </button>
-		<br/>
+	<input class="ui button green" type="submit" value="Update">
+
 	</form>
-	<a href="/">Return to TaskList</a>
-</body>
-</html>
+	<a href="/"><input class="ui button yellow" type="submit" value="Cancel"></a>
+  {% endblock %}

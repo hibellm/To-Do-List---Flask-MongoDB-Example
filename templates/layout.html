@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MDH Metadata FlaskApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css">
+  </head>
+
+  <body>
+      {% include 'includes/_navbar.html' %}
+    <div class="ui container">
+      <div class="ui segment blue inverted pad">
+      	<h1>MDH Metadata Dashboard</h1>
+      	<div class="meta"><i>Logged in as  {{session.username}}</i></div>
+      	<div class="description">
+      		A list of Data sources entered in the meta data.
+      		Add a new entry, edit an existing entry or delete one.
+      	</div>
+      </div>
+
+      {% include 'includes/_messages.html' %}
+      {% block body %}{% endblock %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.7.1/ckeditor.js"></script>
+    <script type="text/javascript">
+      CKEDITOR.replace('editor')
+    </script>
+    </body>
+</html>
