@@ -5,15 +5,26 @@
 	{% if vendors[0] %}
 	<div span="right">
 	<form action="/search"	method="GET" >
-		<table class="ui table baisc striped" id="close">
+	
+	<div class="ui segment">
+	Search:
+	<div class="ui category search">
+	  <div class="ui icon input">
+	      <input class="prompt" type="text" placeholder="Search Vendors...">
+	          <i class="search icon"></i>
+	            </div>
+	              <div class="results"></div>
+	              </div>
+	</div>
+		<table class="ui table basic striped" id="close">
 		<tr>
 		<td></td><td></td>
 		<td><big><b>Search Reference:</b></big></td>
 		<td><select name="refer" required>
-			<option value="name">Task Name</option>
+			<option value="name">Vendor Name</option>
 			<option value="desc">Description</option>
-			<option value="date">Date</option>
-			<option value="pr">Priority</option>
+			<option value="date">Date Entered</option>
+			<option value="pr">Created by</option>
 		</select></td>
 		<td><input type="text" name="key" placeholder="Search Task" size="15" /></td>
 		<td><button type="submit">Search</button></td>
@@ -28,14 +39,14 @@
 	    	<th class="status">Status</th>
 	    	<th class="name">Task Name</th>
 	    	<th class="desc">Description Name</th>
-	    	<th class="date">Date</th>
-	    	<th class="pr">Priority</th>
+	    	<th class="date">Date Entered</th>
+	    	<th class="pr">Creator</th>
 		<th class="func1">Remove</th>
 		<th class="func2">Modify</th>
 	    </tr>
 	{% for vendor in vendors %}
 		<tr class="datas">
-			<td><a href="./done?_id={{ vendor['_id'] }}"><input type="image" src="static/images/{{vendor['done']}}.png" alt="Submit ME"></a></td>
+			<td><a href="./update?_id={{ vendor['_id'] }}"><i class="ui icon external"></i></a></td>
 			<td class="name">{{ vendor["name"] }}</td>
 			<td class="desc">{{ vendor["desc"] }}</td>
 			<td class="date">{{ vendor["date"] }}</td>
@@ -56,7 +67,8 @@
 	{% endif %}
 	<hr/>
 	<form action="/action" method="POST">
-	<table class="none">
+	
+	<table class="ui table basic striped">
 		<tr>
 			<td><b><big><label>Add a vendor : </label></big></b></td>
 		</tr>

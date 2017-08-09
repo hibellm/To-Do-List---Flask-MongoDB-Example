@@ -8,7 +8,6 @@
 	{% for task in tasks %}
 		Unique Object ID : {{ task['_id'] }}<br/>
 	<input type="text" name="_id" value="{{ task['_id'] }}" hidden>
-
 	<table>
 	<tr>
 	<td>Task Name</td><td> : </td><td><input type="text" name="name" value="{{ task['name'] }}" placeholder="{{ task['name'] }}"></td>
@@ -24,8 +23,49 @@
 	</tr>
 	</table>
 	{% endfor %}
+	<p>
 	<input class="ui button green" type="submit" value="Update">
-
 	</form>
+	
+	<div class="ui form">
+	<div class="field"><label> item1</label>
+	<div class="two fields">
+	<div class="field required"><input type="sometext" name="name" value="" placeholder="Vendor Code"></div>
+	<div class="field required"><input type="other" name="date" value="" placeholder="Vendor Name"></div>
+	<div class="field"><select class="ui fluid dropdown"><option value="Yes"></option>
+	                                                     <option value="No"></option>
+	                                                    
+	</select></div>
+	  <div class="inline fields">
+	      <label for="fruit">Select your favorite fruit:</label>
+	          <div class="field">
+	                <div class="ui radio checkbox">
+	                        <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+	                                <label>Apples</label>
+	                                      </div>
+	                                          </div>
+	                                              <div class="field">
+	                                                    <div class="ui radio checkbox">
+	                                                            <input type="radio" name="fruit" tabindex="0" class="hidden">
+	                                                                    <label>Oranges</label>
+	                                                                          </div>
+	                                                                              </div>
+	                                                                                  <div class="field">
+	                                                                                        <div class="ui radio checkbox">
+	                                                                                                <input type="radio" name="fruit" tabindex="0" class="hidden">
+	                                                                                                        <label>Pears</label>
+	                                                                                                              </div>
+	                                                                                                                  </div>
+	                                                                                                                      <div class="field">
+	                                                                                                                            <div class="ui radio checkbox">
+	                                                                                                                                    <input type="radio" name="fruit" tabindex="0" class="hidden">
+	                                                                                                                                            <label>Grapefruit</label>
+	                                                                                                                                                  </div>
+	                                                                                                                                                      </div>
+	                                                                                                                                                        </div>
+	</div>
+	</div>
+	
+	
 	<a href="/"><input class="ui button yellow" type="submit" value="Cancel"></a>
   {% endblock %}

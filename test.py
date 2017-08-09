@@ -7,10 +7,14 @@ client = MongoClient('localhost', 27017)    #Configure the connection to the dat
 db = client.mdh      #Select the database
 vendors = db.vendors #Select the collection
 
+#APP settings
 app = Flask(__name__)
+app.secret_key = "secret_key_123"
+
 title = "MDH metadata manager"
 heading = "Vendor Details"
 #modify=ObjectId()
+
 
 def redirect_url():
     return request.args.get('next') or \
@@ -53,7 +57,6 @@ def done ():
 
 #	if(str(redir)=="http://localhost:5000/search"):
 #		redir+="?key="+id+"&refer="+refer
-
 	return redirect(redir)
 
 #@app.route("/add")
@@ -62,14 +65,16 @@ def done ():
 
 @app.route("/action", methods=['POST'])
 def action ():
-	#Adding a Task
-	name=request.values.get("name")
-	desc=request.values.get("desc")
-	date=request.values.get("date")
-	pr=request.values.get("pr")
-	vendors.insert({ "name":name, "desc":desc, "date":date, "pr":pr, "done":"no"})
-	flash('DataSource Deleted', 'success')
-	return redirect("/list")
+	#Adding a new Vendor
+#	name=request.values.get("name")
+#	desc=request.values.get("desc")
+#	date=request.values.get("date")
+#	pr=request.values.get("pr")
+#	vendors.insert({ "name":name, "desc":desc, "date":date, "pr":pr, "done":"no"})
+#	flash('DataSource Deleted', 'success')
+	return render_template('add.html',h=heading,t=title)
+#return redirect("/list")
+
 
 @app.route("/remove")
 def remove ():
@@ -99,7 +104,6 @@ def action3 ():
 @app.route("/search", methods=['GET'])
 def search():
 	#Searching a Task with various references
-
 	key=request.values.get("key")
 	refer=request.values.get("refer")
 	if(key=="_id"):
@@ -112,7 +116,8 @@ def search():
 def about():
 	return render_template('credits.html',t=title,h=heading)
 
+
+
 if __name__ == "__main__":
-    app.secret_key='secret123'
     app.run(debug=True)
 # Careful with the debug mode..
