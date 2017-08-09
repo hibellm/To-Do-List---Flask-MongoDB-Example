@@ -1,31 +1,19 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-	<h1>{{h}}</h1>
-	<hr>
-	<h3>Add new Vendor</h3>
-	<form action="/action3" method="POST">
-#	{% for task in tasks %}
-#		Unique Object ID : {{ task['_id'] }}<br/>
-#	<input type="text" name="_id" value="{{ task['_id'] }}" hidden>
+<form action="/action" method="POST">
 
-	<table>
-	<tr>
-	<td>Task Name</td><td> : </td><td><input type="text" name="name" value="" placeholder="{{ task['name'] }}"></td>
-	</tr>
-	<tr>
-	<td>Description</td><td> : </td><td><textarea type="text" name="desc" rows=3 cols=30 placeholder="{{ task['desc'] }}"> </textarea></td>
-	</tr>
-	<tr>
-	<td>Date</td><td> : </td><td><input type="text" name="date" value="" placeholder="{{ task['date'] }}"></td>
-	</tr>
-	<tr>
-	<td>Priority</td><td> : </td><td><input type="text" name="pr" value="" placeholder="{{ task['pr'] }}"></td>
-	</tr>
-	</table>
-#	{% endfor %}
-	<p>
-	<input class="ui button green" type="submit" value="Update">
+	<table class="ui table basic striped">
+		<tr>
+			<td><b><big><label>Add a vendor : </label></big></b></td>
+		</tr>
+		<tr>
+		<td><input type="text" name="name" placeholder="Taskname" /></td>
+		<td><textarea name="desc" rows="1" cols="30" placeholder="Enter Description here..." required></textarea></td>
+		<td><input type="text" name="date" placeholder="Date" /></td>
+		<td><input type="text" name="pr" placeholder="Priority" /></td>
+		<td><button type="submit"> Create </button></td>
+		</tr>
 	</form>
-	<a href="/"><input class="ui button yellow" type="submit" value="Cancel"></a>
-  {% endblock %}
+	</table>
+{% endblock %}

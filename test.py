@@ -66,12 +66,12 @@ def done ():
 @app.route("/action", methods=['POST'])
 def action ():
 	#Adding a new Vendor
-#	name=request.values.get("name")
-#	desc=request.values.get("desc")
-#	date=request.values.get("date")
-#	pr=request.values.get("pr")
-#	vendors.insert({ "name":name, "desc":desc, "date":date, "pr":pr, "done":"no"})
-#	flash('DataSource Deleted', 'success')
+	name=request.values.get("name")
+	desc=request.values.get("desc")
+	date=request.values.get("date")
+	pr=request.values.get("pr")
+	vendors.insert({ "name":name, "desc":desc, "date":date, "pr":pr, "done":"no"})
+	flash('DataSource Added', 'success')
 	return render_template('add.html',h=heading,t=title)
 #return redirect("/list")
 

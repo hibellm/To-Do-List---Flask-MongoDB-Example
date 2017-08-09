@@ -1,11 +1,19 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-
+<div class="ui segment blue inverted">
+    <h1>MDH metadata Dashboard</h1>
+    <div class="meta"><i>Logged in as {{session.username}}</i></div>
+    <div class="description">
+      A list of Metadata (Vendors and Data sources) entered in the metadata DB.
+      Add a new entry, edit an existing entry or delete one.
+    </div><br>
+    <a class="ui button green compact" href="./action"> Add Vendor</a>
+  </div>
 	{% if vendors[0] %}
 	<div span="right">
 	<form action="/search"	method="GET" >
-	
+
 	<div class="ui segment">
 	Search:
 	<div class="ui category search">
@@ -67,7 +75,6 @@
 	{% endif %}
 	<hr/>
 	<form action="/action" method="POST">
-	
 	<table class="ui table basic striped">
 		<tr>
 			<td><b><big><label>Add a vendor : </label></big></b></td>

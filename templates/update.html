@@ -1,16 +1,24 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-	<h1>{{h}}</h1>
-	<hr>
-	<h3>Update tasks with a reference</h3>
+<div class="ui segment blue inverted">
+	<h1>MDH metadata Dashboard</h1>
+	<div class="meta"><i>Logged in as {{session.username}}</i></div>
+	<div class="description">
+		A list of Metadata (Vendors and Data sources) entered in the metadata DB.
+		Add a new entry, edit an existing entry or delete one.
+	</div><br>
+</div>
+
+	<h3>Update Vendor Details</h3>
 	<form action="/action3" method="POST">
 	{% for task in tasks %}
-		Unique Object ID : {{ task['_id'] }}<br/>
+	<div class="ui label" >Unique Object ID : {{ task['_id'] }}</div>
+	<div class="ui segment">
 	<input type="text" name="_id" value="{{ task['_id'] }}" hidden>
 	<table>
 	<tr>
-	<td>Task Name</td><td> : </td><td><input type="text" name="name" value="{{ task['name'] }}" placeholder="{{ task['name'] }}"></td>
+	<td>Vendor Code</td><td> : </td><td><input type="text" name="name" value="{{ task['name'] }}" placeholder="{{ task['name'] }}"></td>
 	</tr>
 	<tr>
 	<td>Description</td><td> : </td><td><textarea type="text" name="desc" rows=3 cols=30 placeholder="{{ task['desc'] }}"> {{ task['desc'] }} </textarea></td>
@@ -22,50 +30,73 @@
 	<td>Priority</td><td> : </td><td><input type="text" name="pr" value="{{ task['pr'] }}" placeholder="{{ task['pr'] }}"></td>
 	</tr>
 	</table>
-	{% endfor %}
+
 	<p>
 	<input class="ui button green" type="submit" value="Update">
 	</form>
-	
+
 	<div class="ui form">
-	<div class="field"><label> item1</label>
-	<div class="two fields">
-	<div class="field required"><input type="sometext" name="name" value="" placeholder="Vendor Code"></div>
-	<div class="field required"><input type="other" name="date" value="" placeholder="Vendor Name"></div>
-	<div class="field"><select class="ui fluid dropdown"><option value="Yes"></option>
-	                                                     <option value="No"></option>
-	                                                    
-	</select></div>
-	  <div class="inline fields">
-	      <label for="fruit">Select your favorite fruit:</label>
-	          <div class="field">
-	                <div class="ui radio checkbox">
-	                        <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
-	                                <label>Apples</label>
-	                                      </div>
-	                                          </div>
-	                                              <div class="field">
-	                                                    <div class="ui radio checkbox">
-	                                                            <input type="radio" name="fruit" tabindex="0" class="hidden">
-	                                                                    <label>Oranges</label>
-	                                                                          </div>
-	                                                                              </div>
-	                                                                                  <div class="field">
-	                                                                                        <div class="ui radio checkbox">
-	                                                                                                <input type="radio" name="fruit" tabindex="0" class="hidden">
-	                                                                                                        <label>Pears</label>
-	                                                                                                              </div>
-	                                                                                                                  </div>
-	                                                                                                                      <div class="field">
-	                                                                                                                            <div class="ui radio checkbox">
-	                                                                                                                                    <input type="radio" name="fruit" tabindex="0" class="hidden">
-	                                                                                                                                            <label>Grapefruit</label>
-	                                                                                                                                                  </div>
-	                                                                                                                                                      </div>
-	                                                                                                                                                        </div>
+		<h4 class="ui dividing header">Vendor Information</h4>
+		<div class="field">
+			<label> item1</label>
+			<div class="two fields">
+				<div class="eight wide field required">Vendor Name <input type="sometext" name="name" value="" placeholder="Vendor Code"></div>
+				<div class="six wide field required">Vendor Code <input type="other" name="date" value="" placeholder="Vendor Name"></div>
+			</div>
+			<div class="field"><textarea value="" name="pr" value="{{ task['pr'] }}" placeholder="Vendor description"></textarea>
+
+			</div>
+		</div>
+		<h4 class="ui dividing header">Vendor Contact Details</h4>
+		<div class="field">
+			<label> item1</label>
+			<div class="two fields">
+				<div class="field required">Vendor Name <input type="sometext" name="name" value="" placeholder="Vendor Code"></div>
+				<div class="field required">Vendor Code <input type="other" name="date" value="" placeholder="Vendor Name"></div>
+			</div>
+		</div>
+
+		<div class="field">
+		    <label>Contact Address</label>
+		    <div class="fields">
+		      <div class="twelve wide field">
+		        <input type="text" name="shipping[address]" placeholder="Street Address">
+		      </div>
+		      <div class="four wide field">
+		        <input type="text" name="shipping[address-2]" placeholder="Apt #">
+		      </div>
+		    </div>
+		  </div>
+		  <div class="two fields">
+		    <div class="field">
+		      <label>State</label>
+		      <select class="ui fluid dropdown">
+		        <option value="">State</option>
+				    <option value="AL">Alabama</option>
+				    <option value="AK">Alaska</option>
+		      </select>
+		    </div>
+		    <div class="field">
+		      <label>Country</label>
+		      <div class="ui fluid search selection dropdown">
+		        <input type="hidden" name="country">
+		        <i class="dropdown icon"></i>
+		        <div class="default text">Select Country</div>
+		        <div class="menu">
+					    <div class="item" data-value="af"><i class="af flag"></i>Afghanistan</div>
+					    <div class="item" data-value="ax"><i class="ax flag"></i>Aland Islands</div>
+					    <div class="item" data-value="al"><i class="al flag"></i>Albania</div>
+					    <div class="item" data-value="dz"><i class="dz flag"></i>Algeria</div>
+		  			</div>
+		      </div>
+		    </div>
+		  </div>
+
+			                                                                                                                            </div>
+		</div>
 	</div>
-	</div>
-	
-	
+
 	<a href="/"><input class="ui button yellow" type="submit" value="Cancel"></a>
+	</div>
+	{% endfor %}	
   {% endblock %}

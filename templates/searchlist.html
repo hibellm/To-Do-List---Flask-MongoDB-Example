@@ -1,8 +1,15 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-	<h1>{{h}}</h1>
-	<hr>
+<div class="ui segment blue inverted">
+    <h1>Data Source Dashboard</h1>
+    <div class="meta"><i>Logged in as  {{session.username}}</i></div>
+    <div class="description">
+      A list of Data sources entered in the meta data.
+      Add a new entry, edit an existing entry or delete one.
+    </div><br>
+    <a class="ui button green compact" href="/add_datasource"> Add datasource</a>
+  </div>
 	{% if vendors[0] %}
 	<h3>Result of the Search : vendor List</h3>
 	<table class="ui table basic striped">
