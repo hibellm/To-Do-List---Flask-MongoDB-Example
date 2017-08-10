@@ -8,8 +8,12 @@
       A list of Metadata (Vendors and Data sources) entered in the metadata DB.
       Add a new entry, edit an existing entry or delete one.
     </div><br>
-    <a class="ui button green compact" href="./action"> Add Vendor</a>
+
+    <form action="/action" method="POST">
+      <button class="ui button green compact" type="submit"> Add Vendor </button>
+    </form>
   </div>
+
 	{% if vendors[0] %}
 	<div span="right">
 	<form action="/search"	method="GET" >
@@ -19,10 +23,10 @@
 	<div class="ui category search">
 	  <div class="ui icon input">
 	      <input class="prompt" type="text" placeholder="Search Vendors...">
-	          <i class="search icon"></i>
-	            </div>
-	              <div class="results"></div>
-	              </div>
+	      <i class="search icon"></i>
+	  </div>
+	  <div class="results"></div>
+	</div>
 	</div>
 		<table class="ui table basic striped" id="close">
 		<tr>
@@ -44,9 +48,9 @@
 	<h1 class="ui header">List of Vendors</h1>
 	<table class="ui table baisc striped">
 	    <tr id="row">
-	    	<th class="status">Status</th>
-	    	<th class="name">Task Name</th>
-	    	<th class="desc">Description Name</th>
+	    	<th class="status"></th>
+	    	<th class="name">Vendor Name</th>
+	    	<th class="desc">Description</th>
 	    	<th class="date">Date Entered</th>
 	    	<th class="pr">Creator</th>
 		<th class="func1">Remove</th>

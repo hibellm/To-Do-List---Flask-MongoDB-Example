@@ -14,47 +14,25 @@
 	<form action="/action3" method="POST">
 	{% for task in tasks %}
 	<div class="ui label" >Unique Object ID : {{ task['_id'] }}</div>
-	<div class="ui segment">
-	<input type="text" name="_id" value="{{ task['_id'] }}" hidden>
-	<table>
-	<tr>
-	<td>Vendor Code</td><td> : </td><td><input type="text" name="name" value="{{ task['name'] }}" placeholder="{{ task['name'] }}"></td>
-	</tr>
-	<tr>
-	<td>Description</td><td> : </td><td><textarea type="text" name="desc" rows=3 cols=30 placeholder="{{ task['desc'] }}"> {{ task['desc'] }} </textarea></td>
-	</tr>
-	<tr>
-	<td>Date</td><td> : </td><td><input type="text" name="date" value="{{ task['date'] }}" placeholder="{{ task['date'] }}"></td>
-	</tr>
-	<tr>
-	<td>Priority</td><td> : </td><td><input type="text" name="pr" value="{{ task['pr'] }}" placeholder="{{ task['pr'] }}"></td>
-	</tr>
-	</table>
+	<div class="ui segment grey inverted tertiary">
 
-	<p>
-	<input class="ui button green" type="submit" value="Update">
-	</form>
+	<input type="text" name="_id" value="{{ task['_id'] }}" hidden>
 
 	<div class="ui form">
-		<h4 class="ui dividing header">Vendor Information</h4>
+		<h4 class="ui dividing header large">Vendor Information</h4>
 		<div class="field">
-			<label> item1</label>
 			<div class="two fields">
-				<div class="eight wide field required">Vendor Name <input type="sometext" name="name" value="" placeholder="Vendor Code"></div>
-				<div class="six wide field required">Vendor Code <input type="other" name="date" value="" placeholder="Vendor Name"></div>
+				<div class="field required">Vendor Name <input type="text" name="name" value="{{ task['name'] }}" placeholder="Vendor Code"></div>
+				<div class="field required">Vendor Code <input type="text" name="date" value="{{ task['date'] }}" placeholder="Vendor Name"></div>
 			</div>
-			<div class="field"><textarea value="" name="pr" value="{{ task['pr'] }}" placeholder="Vendor description"></textarea>
-
-			</div>
-		</div>
-		<h4 class="ui dividing header">Vendor Contact Details</h4>
+			<div class="field">Description<textarea rows="2" value="" name="desc" value="{{ task['desc'] }}" placeholder="Vendor description">{{ task['desc'] }}</textarea></div>
+</div>
+		<h4 class="ui dividing header large">Vendor Contact Details</h4>
 		<div class="field">
-			<label> item1</label>
-			<div class="two fields">
-				<div class="field required">Vendor Name <input type="sometext" name="name" value="" placeholder="Vendor Code"></div>
-				<div class="field required">Vendor Code <input type="other" name="date" value="" placeholder="Vendor Name"></div>
-			</div>
-		</div>
+			<div class="fields">
+				<div class="eight wide field required">Vendor Name <input type="text" name="name" value="" placeholder="Vendor Code"></div>
+				<div class="four wide field required">Vendor Code <input type="text" name="date" value="" placeholder="Vendor Name"></div>
+			</div></div>
 
 		<div class="field">
 		    <label>Contact Address</label>
@@ -66,8 +44,8 @@
 		        <input type="text" name="shipping[address-2]" placeholder="Apt #">
 		      </div>
 		    </div>
-		  </div>
-		  <div class="two fields">
+		</div>
+		<div class="two fields">
 		    <div class="field">
 		      <label>State</label>
 		      <select class="ui fluid dropdown">
@@ -90,13 +68,17 @@
 		  			</div>
 		      </div>
 		    </div>
-		  </div>
-
+		</div>
+		<p>
+		<input class="ui button green" type="submit" value="Update">
+		</form>
+		<a href="/"><input class="ui button yellow" type="submit" value="Cancel"></a>
 			                                                                                                                            </div>
 		</div>
 	</div>
 
-	<a href="/"><input class="ui button yellow" type="submit" value="Cancel"></a>
+
+
 	</div>
-	{% endfor %}	
+	{% endfor %}
   {% endblock %}
