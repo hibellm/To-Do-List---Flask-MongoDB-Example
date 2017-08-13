@@ -12,6 +12,9 @@
     <form action="/action" method="POST">
       <button class="ui button green compact" type="submit"> Add Vendor </button>
     </form>
+    <form action="/mail" method="POST">
+      <button class="ui button green compact" type="submit"> Mail me </button>
+    </form>
   </div>
 
 	{% if vendors[0] %}
@@ -46,10 +49,10 @@
 	</div>
 
 	<h1 class="ui header">List of Vendors</h1>
-	<table class="ui table baisc striped">
+	<table class="ui table baisc striped sortable" id="vendorlist">
 	    <tr id="row">
 	    	<th class="status"></th>
-	    	<th class="name">Vendor Name</th>
+	    	<th class="name ascending">Vendor Name</th>
 	    	<th class="desc">Description</th>
 	    	<th class="date">Date Entered</th>
 	    	<th class="pr">Creator</th>
@@ -92,4 +95,5 @@
 		</tr>
 	</form>
 	</table>
+
 {% endblock %}

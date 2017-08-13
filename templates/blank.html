@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <div class="ui form">
+    <form action="/mail">
+
+      <div class="field">
+        <label>Message Type</label>
+        <select class="ui fluid dropdown" id="msgtemp" name="msgtemp" placeholder="Select a template">
+          <option value="welcome">Welcome</option>
+          <option value="anno">Announcement</option>
+          <option value="info">Info</option>
+          <option value="sys">System Maintainence</option>
+        </select>
+      </div>
+      <div class="ten wide field">
+        <label>To:</label>
+        <input type="text" id="sendto" placeholder="john.doe@roche.com, jane.doe@roche.com, etc..." name="sendto">
+      </div>
+      <div class="field">
+        <label>Message Text</label>
+        <textarea rows="2" id="msgtext" name="msgtext"></textarea>
+      </div>
+      <br>
+      <button class="ui button green compact" id="submitButton" type="submit">Mail me</button>
+    </form>
+    <div class="ui error message">
+    </div>
+    <div id="info">
+    </div>
+</div>
+
+<script type="text/javascript">
+$('select.dropdown')
+  .dropdown()
+;
+$('.ui.form')
+  .form({
+    fields: {
+      sendto: 'minCount[1]'
+
+          },
+onSuccess: function(event, fields){
+    $('#info').html("on success");
+    console.log("on success");
+    console.log(fields);
+    event.preventDefault();
+},
+onFailure: function(formErrors, fields){
+    $('#info').html("on failure");
+    console.log("on failure");
+    console.log(fields);
+}
+});
+
+$('#submitButton').on('click', function(){
+	$('.ui.form').form('validate form');
+});
+
+</script>
+{% endblock %}
