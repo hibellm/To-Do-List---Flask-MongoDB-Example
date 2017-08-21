@@ -9,29 +9,30 @@
       Add a new entry, edit an existing entry or delete one.
     </div><br>
 
-    <form action="/action" method="POST">
-      <button class="ui button green compact" type="submit"> Add Vendor </button>
-    </form>
-    <form action="/mail" method="POST">
-      <button class="ui button green compact" type="submit"> Mail me </button>
-    </form>
-  </div>
+    <div class="ui form">
+      <form action="/action" method="POST">
+        <button class="ui button green compact" type="submit"> Add Vendor </button>
+      </form>
+      <!-- <form action="/mail" method="POST">
+        <button class="ui button green compact" type="submit"> Mail me </button>
+      </form> -->
+    </div>
+</div>
 
 	{% if vendors[0] %}
 	<div span="right">
 	<form action="/search"	method="GET" >
 
 	<div class="ui segment">
-	Search:
-	<div class="ui category search">
-	  <div class="ui icon input">
-	      <input class="prompt" type="text" placeholder="Search Vendors...">
-	      <i class="search icon"></i>
-	  </div>
-	  <div class="results"></div>
+  	<div class="ui category search">
+  	  <div class="ui icon input">
+  	      <input class="prompt" type="text" placeholder="Search Vendors...">
+  	      <i class="search icon"></i>
+  	  </div>
+  	  <div class="results"></div>
+  	</div>
 	</div>
-	</div>
-		<table class="ui table basic striped" id="close">
+		<table class="ui table basic striped sortable" id="close">
 		<tr>
 		<td></td><td></td>
 		<td><big><b>Search Reference:</b></big></td>
@@ -52,18 +53,20 @@
 	<table class="ui table baisc striped sortable" id="vendorlist">
 	    <tr id="row">
 	    	<th class="status"></th>
-	    	<th class="name ascending">Vendor Name</th>
+        <th class="name ascending">Vendor Name</th>
+        <th class="code">Vendor Code</th>
 	    	<th class="desc">Description</th>
 	    	<th class="date">Date Entered</th>
 	    	<th class="pr">Creator</th>
-		<th class="func1">Remove</th>
-		<th class="func2">Modify</th>
+    		<th class="func1">Remove</th>
+    		<th class="func2">Modify</th>
 	    </tr>
 	{% for vendor in vendors %}
 		<tr class="datas">
 			<td><a href="./update?_id={{ vendor['_id'] }}"><i class="ui icon external"></i></a></td>
 			<td class="name">{{ vendor["name"] }}</td>
-			<td class="desc">{{ vendor["desc"] }}</td>
+			<td class="code">{{ vendor["code"] }}</td>
+      <td class="desc">{{ vendor["desc"] }}</td>
 			<td class="date">{{ vendor["date"] }}</td>
 			<td class="pr">{{ vendor["pr"] }}</td>
 			<td class="func1">
@@ -78,10 +81,10 @@
 	{% endfor %}
 	</table>
 	{% else %}
-		<h4>No vendor in the List !!</h4>
+		<h4>No vendors in the List !!</h4>
 	{% endif %}
 	<hr/>
-	<form action="/action" method="POST">
+	<form id="" action="/action" method="POST">
 	<table class="ui table basic striped">
 		<tr>
 			<td><b><big><label>Add a vendor : </label></big></b></td>

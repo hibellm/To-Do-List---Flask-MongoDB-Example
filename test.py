@@ -1,5 +1,6 @@
 #from flask import Flask, flash, render_template,request,redirect,url_for # For flask implementation
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from wtforms import Form, StringField, TextAreaField, PasswordField, RadioField, validators
 from pymongo import MongoClient # Database connector
 from bson.objectid import ObjectId # For ObjectId to work
 
@@ -15,6 +16,11 @@ title = "MDH metadata manager"
 heading = "Vendor Details"
 #modify=ObjectId()
 
+# Vendor Form Class
+class VendorForm(Form):
+    name = StringField('name', [validators.Length(min=1)])
+    code = StringField('code', [validators.Length(min=1,max=10)])
+    desc = TextAreaField('desc', [validators.Length(min=30)])
 
 def redirect_url():
     return request.args.get('next') or \
@@ -65,15 +71,21 @@ def done ():
 
 @app.route("/action", methods=['POST'])
 def action ():
-	#Adding a new Vendor
-	name=request.values.get("name")
-	desc=request.values.get("desc")
-	date=request.values.get("date")
-	pr=request.values.get("pr")
-	vendors.insert({ "name":name, "desc":desc, "date":date, "pr":pr, "done":"no"})
-	flash('DataSource Added', 'success')
-	return render_template('add.html',h=heading,t=title)
-#return redirect("/list")
+    form = VendorForm(request.form)
+    if request.method == 'POST' and form.validate():
+        name = form.name.data
+        code = form.code.data
+        desc = form.desc.data
+    #Adding a new Vendor
+    name=request.values.get("name")
+    code=request.values.get("code")
+    desc=request.values.get("desc")
+    date=request.values.get("date")
+    pr=request.values.get("pr")
+    vendors.insert({ "name":name, "code":code, "desc":desc, "date":date, "pr":pr, "done":"no"})
+    flash('DataSource Added', 'success')
+    return render_template('add.html',h=heading,t=title)
+    #return redirect("/list")
 
 
 @app.route("/remove")
@@ -81,7 +93,7 @@ def remove ():
 	#Deleting a Task with various references
 	key=request.values.get("_id")
 	vendors.remove({"_id":ObjectId(key)})
-	flash('Removed', 'success')
+	flash('Vendor Removed', 'success')
 	return redirect("/")
 
 @app.route("/update")
@@ -94,11 +106,12 @@ def update ():
 def action3 ():
 	#Updating a Task with various references
 	name=request.values.get("name")
+	code=request.values.get("code")
 	desc=request.values.get("desc")
 	date=request.values.get("date")
 	pr=request.values.get("pr")
 	id=request.values.get("_id")
-	vendors.update({"_id":ObjectId(id)}, {'$set':{ "name":name, "desc":desc, "date":date, "pr":pr }})
+	vendors.update({"_id":ObjectId(id)}, {'$set':{ "name":name, "code":code, "desc":desc, "date":date, "pr":pr }})
 	return redirect("/")
 
 @app.route("/search", methods=['GET'])

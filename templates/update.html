@@ -23,18 +23,26 @@
 		<h4 class="ui dividing header large">Vendor Information</h4>
 		<div class="field">
 			<div class="fields">
-				<div class="eight wide field required">Vendor Name <input type="text" name="VendorName" value="{{ task['name'] }}" placeholder="Vendor Code"></div>
-				<div class="four wide field required">Vendor Code <input type="text" name="VendorCode" value="{{ task['date'] }}" placeholder="Vendor Name"></div>
+				<div class="eight wide field required">Vendor Name <input type="text" id="VendorName" name="VendorName" value="{{ task['name'] }}" placeholder="Vendor Name"></div>
+				<div class="four wide field required">Vendor Code <input type="text" id="VendorCode" name="VendorCode" value="{{ task['code'] }}" placeholder="Vendor Code"></div>
 			</div>
 			<div class="field">Description<textarea rows="2" value="" name="desc" value="{{ task['desc'] }}" placeholder="Vendor description">{{ task['desc'] }}</textarea></div>
 		</div>
 		<!--VENDOR CONTACT-->
 		<h4 class="ui dividing header large">Vendor Contact Details</h4>
 		<div class="field">
+		    <label>Contact Person</label>
+		    <div class="fields">
+		      <div class="six wide field"><input type="text" name="Contact[detail]" placeholder="Contact Name"></div>
+					<div class="six wide field"><input type="text" name="Contact[detail-2]" placeholder="Contact Email"></div>
+					<div class="six wide field"><input type="text" name="Contact[detail-3]" placeholder="Web address"></div>
+		    </div>
+		</div>
+		<div class="field">
 		    <label>Contact Address</label>
 		    <div class="fields">
-		      <div class="twelve wide field"><input type="text" name="shipping[address]" placeholder="Street Address"></div>
-		      <div class="four wide field"><input type="text" name="shipping[address-2]" placeholder="Apt #"></div>
+		      <div class="twelve wide field"><input type="text" name="Contact[address]" placeholder="Street Address"></div>
+		      <div class="four wide field"><input type="text" name="Contact[address-2]" placeholder="Apt #"></div>
 		    </div>
 		</div>
 		<div class="two fields">
@@ -70,7 +78,6 @@
 
 	<!--FORM VALIDATION  -->
 	<script>
-
 		$('select.dropdown')
 		  .dropdown()
 		;
@@ -84,8 +91,6 @@
 				}
 			})
 		;
-
-
 	</script>
 
   {% endblock %}
