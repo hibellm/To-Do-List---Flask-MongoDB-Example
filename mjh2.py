@@ -1,6 +1,7 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from flask_mail import Mail, Message
 
+
 app =Flask(__name__)
 mail=Mail(app)
 app.secret_key = "secret_key_123"
@@ -12,6 +13,7 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_DEFAULT_SENDER'] = 'marcus.mjh@gmail.com'
 mail = Mail(app)
+
 
 # THE INITIAL PAGE
 @app.route("/")
@@ -31,6 +33,7 @@ def index():
    # GET VALUES FROM FORM
    msgtemp=str(request.values.get("msgtemp"))
    msgto=request.values.get("sendto")
+   msgtext=request.values.get("msgtext")
 
    msghead = """
    <head>
@@ -52,7 +55,7 @@ def index():
    <body>
      <table style="border: blue 1px solid;">
        <tr><td class="cell">Cell 1.1</td><td class="cell">Cell 1.2</td></tr>
-       <tr><td class="cell">Cell 2.1</td><td class="cell"></td></tr>
+       <tr><td class="cell">Cell 2.1</td><td class="cell">"""+msgtext+"""</td></tr>
      </table>
    </body>
    """
@@ -101,7 +104,8 @@ def index():
   """
    anno = """
   <body>
-    <h1>Anno I hope</h1>
+  <h1>Medical Data Hub Announcement!</h1>
+  <p>lorem est</p>
   </body>
   """
 
@@ -121,7 +125,7 @@ def index():
    msg = Message('Hello', html=msghtml, recipients = [msgto])
    mail.send(msg)
    # return "Sent"
-   flash('Email sent', 'success')
+   # flash('Email sent', 'success')
    return render_template('blank.html')
 
 if __name__ == '__main__':

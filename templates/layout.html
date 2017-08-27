@@ -19,12 +19,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.7.1/ckeditor.js"></script>
-    <script type="text/javascript" src="./templates/tablesort.js"></script>
     <script type="text/javascript">
-      CKEDITOR.replace('editor')
+      CKEDITOR.replace('msgtext')
     </script>
+
     <script type="text/javascript">
-      $('table').tablesort();
+    $('#submitButton').on('click', function(){
+      $('.ui.form').form('validate form');
+    });
+
+    $('select.dropdown')
+      .dropdown()
+    ;
+
+    $('.ui.form')
+      .form({
+        fields: {
+          sendto: 'minCount[1]'
+              },
+    onSuccess: function(event, fields){
+        $('#info').html("<br><div class='ui green message'><i class='close icon'></i>Email sent</div>");
+        console.log("on success");
+        console.log(fields);
+        // event.preventDefault();
+    },
+    onFailure: function(formErrors, fields){
+        $('#info').html("<br><div class='ui red message'><i class='close icon'></i>Error! no mail sent</div>");
+        console.log("on failure");
+        console.log(fields);
+    }
+    });
+
     </script>
     </body>
 </html>

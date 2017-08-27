@@ -2,9 +2,8 @@
 
 {% block body %}
 
-    <div class="ui form">
+<div class="ui form">
     <form action="/mail">
-
       <div class="field">
         <label>Message Type</label>
         <select class="ui fluid dropdown" id="msgtemp" name="msgtemp" placeholder="Select a template">
@@ -25,38 +24,8 @@
       <br>
       <button class="ui button green compact" id="submitButton" type="submit">Mail me</button>
     </form>
-    <div class="ui error message">
-    </div>
-    <div id="info">
-    </div>
 </div>
+<!--INFO ABOUT RESULT OF SUBMIT GOES HERE-->
+<div id="info"></div>
 
-<script type="text/javascript">
-$('select.dropdown')
-  .dropdown()
-;
-$('.ui.form')
-  .form({
-    fields: {
-      sendto: 'minCount[1]'
-
-          },
-onSuccess: function(event, fields){
-    $('#info').html("on success");
-    console.log("on success");
-    console.log(fields);
-    event.preventDefault();
-},
-onFailure: function(formErrors, fields){
-    $('#info').html("on failure");
-    console.log("on failure");
-    console.log(fields);
-}
-});
-
-$('#submitButton').on('click', function(){
-	$('.ui.form').form('validate form');
-});
-
-</script>
 {% endblock %}
