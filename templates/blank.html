@@ -17,15 +17,52 @@
         <label>To:</label>
         <input type="text" id="sendto" placeholder="john.doe@roche.com, jane.doe@roche.com, etc..." name="sendto">
       </div>
-      <div class="field">
-        <label>Message Text</label>
-        <textarea rows="2" id="msgtext" name="msgtext"></textarea>
+
+    <!-- test of hiding section -->
+    <div class="ui message blue inverted visable" id="welcome">
+        <div class="field">
+          <label>this works</label>
+          <textarea rows="2" id="msgtext" name="msgtext"></textarea>
+        </div>
+    </div>
+
+    <div class="ui message hidden" id="anno">
+      <div class="inline fields">
+        <label for="fruit">Which system</label>
+        <div class="inline field">
+          <div class="ui checkbox"><input type="checkbox" tabindex="0" class="hidden"><label>EU Terdata</label></div>
+          <div class="ui checkbox"><input type="checkbox" tabindex="1" class="hidden"><label>US Terdata</label></div>
+          <div class="ui checkbox"><input type="checkbox" tabindex="2" class="hidden"><label>BEE Server</label></div>
+        </div>
       </div>
+    </div>
+
+    <div class="ui message hidden" id="info">
+      <div class="ten wide field">
+        <label>Title</label>
+        <input type="text" id="infotitle" placeholder="Title of the mail" name="infotitle">
+      </div>
+      <div class="field">
+        <label>this works</label>
+        <textarea rows="2" id="infomsgtext" name="infomsgtext"></textarea>
+      </div>
+    </div>
+
+    <div class="ui message hidden" id="sys">
+      <div class="inline fields">
+        <label for="fruit">Which system</label>
+        <div class="inline field">
+          <div class="ui checkbox"><input type="checkbox" tabindex="0" class="hidden"><label>EU Terdata</label></div>
+          <div class="ui checkbox"><input type="checkbox" tabindex="1" class="hidden"><label>US Terdata</label></div>
+          <div class="ui checkbox"><input type="checkbox" tabindex="2" class="hidden"><label>BEE Server</label></div>
+        </div>
+      </div>
+    </div>
       <br>
       <button class="ui button green compact" id="submitButton" type="submit">Mail me</button>
     </form>
 </div>
 <!--INFO ABOUT RESULT OF SUBMIT GOES HERE-->
-<div id="info"></div>
+<div id="mailresult"></div>
 
 {% endblock %}

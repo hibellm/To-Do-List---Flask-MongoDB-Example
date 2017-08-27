@@ -21,7 +21,7 @@ def tasks ():
 	return render_template('blank.html')
 
 
-@app.route("/mail")
+@app.route("/mail",methods=['GET', 'POST'])
 def index():
    msg:str
    msghead:str
@@ -34,6 +34,7 @@ def index():
    msgtemp=str(request.values.get("msgtemp"))
    msgto=request.values.get("sendto")
    msgtext=request.values.get("msgtext")
+   infotitle=str(request.values.get("infotitle"))
 
    msghead = """
    <head>
@@ -61,7 +62,7 @@ def index():
    """
    info = """
   <body>
-    <h1>Teradata Information</h1>
+    <h1>"""+infotitle+"""</h1>
     <p> We are happy to welcome you to </p>
 <table>
   <tr>
@@ -124,8 +125,7 @@ def index():
    # msg = Message('Hello ', html=msgtype,sender = 'marcus.mjh@gmail.com', recipients = ['marcus.mjh@gmail.com'])
    msg = Message('Hello', html=msghtml, recipients = [msgto])
    mail.send(msg)
-   # return "Sent"
-   # flash('Email sent', 'success')
+
    return render_template('blank.html')
 
 if __name__ == '__main__':
