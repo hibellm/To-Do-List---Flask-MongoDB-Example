@@ -34,7 +34,17 @@ def index():
    msgtemp=str(request.values.get("msgtemp"))
    msgto=request.values.get("sendto")
    msgtext=request.values.get("msgtext")
+
+   # INFO
    infotitle=str(request.values.get("infotitle"))
+   infomsgtext=str(request.values.get("infomsgtext"))
+
+   # SYS
+   systitle=str(request.values.get("systitle"))
+   sysserver=str(request.values.get("sysserver"))
+   sysdate=str(request.values.get("sysdate"))
+   sysmsgtext=str(request.values.get("sysmsgtext"))
+
 
    msghead = """
    <head>
@@ -50,75 +60,50 @@ def index():
        }
      </style>
    </head>
+   <body>
+   <div style="width:600px;background-color:#ADD8E6;">
+   """
+   msgfoot = """
+   </div>
+   </body>
    """
 
    welcome = """
-   <body>
+     <div style="justify-content:center;">
      <table style="border: blue 1px solid;">
        <tr><td class="cell">Cell 1.1</td><td class="cell">Cell 1.2</td></tr>
        <tr><td class="cell">Cell 2.1</td><td class="cell">"""+msgtext+"""</td></tr>
      </table>
-   </body>
+	 </div>
    """
    info = """
-  <body>
-    <h1>"""+infotitle+"""</h1>
-    <p> We are happy to welcome you to </p>
-<table>
-  <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-  </tr>
-</table>
-  </body>
+    <h1 style="text-align:center;">"""+infotitle+"""</h1>
+    """+infomsgtext+"""
   """
    anno = """
-  <body>
-  <h1>Medical Data Hub Announcement!</h1>
+  <h1 style="text-align:center;">Medical Data Hub Announcement!</h1>
   <p>lorem est</p>
-  </body>
   """
+   sys = """
+   <div style="justify-content:center;">
+    <h1 style="text-align:center;">"""+systitle+"""</h1>
+     <table style="border: blue 1px solid;">
+       <tr><td class="cell">Maintainence date :</td><td class="cell">"""+sysdate+"""</td></tr>
+       <tr><td class="cell">Affected system</td><td class="cell">"""+sysserver+"""</td></tr>
+     </table>
+	<p>"""+sysmsgtext+"""</div>"""
 
   # LETS TRY AN IF
-
    if msgtemp == 'welcome':
-      msghtml = msghead+welcome
+      msghtml = msghead+welcome+msgfoot
    else:
       if msgtemp == 'anno':
-          msghtml = msghead+anno
+         msghtml = msghead+anno+msgfoot
       else:
-          msghtml = msghead+info
+	      if msgtemp == 'sys':
+	         msghtml = msghead+sys+msgfoot
+	      else:
+	         msghtml = msghead+info+msgfoot
 
    # msghtml = str(msghead+request.values.get("msgtemp"))
 

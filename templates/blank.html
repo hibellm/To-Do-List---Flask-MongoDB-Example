@@ -28,34 +28,46 @@
 
     <div class="ui message hidden" id="anno">
       <div class="inline fields">
-        <label for="fruit">Which system</label>
+        <label for="sysserver">Which system</label>
         <div class="inline field">
-          <div class="ui checkbox"><input type="checkbox" tabindex="0" class="hidden"><label>EU Terdata</label></div>
-          <div class="ui checkbox"><input type="checkbox" tabindex="1" class="hidden"><label>US Terdata</label></div>
-          <div class="ui checkbox"><input type="checkbox" tabindex="2" class="hidden"><label>BEE Server</label></div>
+          <div class="ui checkbox"><input type="checkbox" tabindex="0" class="hidden" value="EU Teradata"><label>EU Terdata</label></div>
+          <div class="ui checkbox"><input type="checkbox" tabindex="1" class="hidden" value="US Teradata"><label>US Terdata</label></div>
+          <div class="ui checkbox"><input type="checkbox" tabindex="2" class="hidden" value="BEE server"><label>BEE Server</label></div>
         </div>
       </div>
     </div>
-
+    <!--INFO MAIL  -->
     <div class="ui message hidden" id="info">
       <div class="ten wide field">
         <label>Title</label>
         <input type="text" id="infotitle" placeholder="Title of the mail" name="infotitle">
       </div>
       <div class="field">
-        <label>this works</label>
+        <label>The message to send</label>
         <textarea rows="2" id="infomsgtext" name="infomsgtext"></textarea>
       </div>
     </div>
 
     <div class="ui message hidden" id="sys">
-      <div class="inline fields">
-        <label for="fruit">Which system</label>
+      <div class="inline fields" id="sysserver">
+        <label for="whichsys">Which system</label>
         <div class="inline field">
-          <div class="ui checkbox"><input type="checkbox" tabindex="0" class="hidden"><label>EU Terdata</label></div>
-          <div class="ui checkbox"><input type="checkbox" tabindex="1" class="hidden"><label>US Terdata</label></div>
-          <div class="ui checkbox"><input type="checkbox" tabindex="2" class="hidden"><label>BEE Server</label></div>
+          <div class="ui checkbox"><input type="checkbox" tabindex="0" class="hidden" value="EU Teradata server"><label>EU Teradata</label></div>
+          <div class="ui checkbox"><input type="checkbox" tabindex="1" class="hidden" value="EU Teradata server"><label>US Teradata</label></div>
+          <div class="ui checkbox"><input type="checkbox" tabindex="2" class="hidden" value="EU&US Teradata servers"><label>BEE Server</label></div>
         </div>
+      </div>
+      <div class="six wide field">
+        <label>Title</label>
+        <textarea rows="1" id="systitle" name="systitle"></textarea>
+      </div>
+      <div class="six wide field">
+        <label>When?</label>
+        <textarea rows="1" id="sysdate" name="sysdate"></textarea>
+      </div>
+      <div class="field">
+        <label>The message to send</label>
+        <textarea rows="2" id="sysmsgtext" name="sysmsgtext"></textarea>
       </div>
     </div>
       <br>
