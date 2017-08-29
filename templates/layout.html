@@ -34,19 +34,27 @@
     $('#msgtemp').change(function() {
       if(document.getElementById('msgtemp').value == "welcome") {
         $('#welcome').attr('class', 'ui visable blue inverted message');
-        $('#anno,#info,#sys').attr('class', 'ui hidden blue inverted message');
+        $('#anno,#info,#sys,#basic,#advanced').attr('class', 'ui hidden blue inverted message');
       }
       if(document.getElementById('msgtemp').value == "anno") {
         $('#anno').attr('class', 'ui visable blue inverted message');
-        $('#welcome,#info,#sys').attr('class', 'ui hidden blue inverted message');
+        $('#welcome,#info,#sys,#basic,#advanced').attr('class', 'ui hidden blue inverted message');
       }
       if(document.getElementById('msgtemp').value == "info") {
         $('#info').attr('class', 'ui visable blue inverted message');
-        $('#anno,#welcome,#sys').attr('class', 'ui hidden blue inverted message');
+        $('#anno,#welcome,#sys,#basic,#advanced').attr('class', 'ui hidden blue inverted message');
       }
       if(document.getElementById('msgtemp').value == "sys") {
         $('#sys').attr('class', 'ui visable blue inverted message');
-        $('#anno,#info,#welcome').attr('class', 'ui hidden blue inverted message');
+        $('#anno,#info,#welcome,#basic,#advanced').attr('class', 'ui hidden blue inverted message');
+      }
+      if(document.getElementById('msgtemp').value == "basic") {
+        $('#basic').attr('class', 'ui visable blue inverted message');
+        $('#anno,#info,#welcome,#sys,#advanced').attr('class', 'ui hidden blue inverted message');
+      }
+      if(document.getElementById('msgtemp').value == "advanced") {
+        $('#advanced').attr('class', 'ui visable blue inverted message');
+        $('#anno,#info,#welcome,#sys,#basic').attr('class', 'ui hidden blue inverted message');
       }
     });
 
