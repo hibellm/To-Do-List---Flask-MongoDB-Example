@@ -1,10 +1,9 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from flask_mail import Mail, Message
 
-
 app =Flask(__name__)
 mail=Mail(app)
-app.secret_key = "secret_key_123"
+app.secret_key = "secret_key_123878678"
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'marcus.mjh@gmail.com'
@@ -19,7 +18,6 @@ mail = Mail(app)
 @app.route("/")
 def tasks ():
 	return render_template('blank.html')
-
 
 @app.route("/mail",methods=['GET', 'POST'])
 def index():
@@ -85,6 +83,7 @@ def index():
    <body>
    <div id="divbody">
    """
+
    msgfoot = """
 	 <div style="text-align:center">
 	  <img height="16px" src="https://sites.google.com/a/roche.com/mdh-portal/_/rsrc/1488288449176/home/feedback.png?height=16px" style="color:rgb(51,51,51);font-family:Arial,Verdana,sans-serif;font-size:small;text-align:center;background-color:rgb(255,255,255)">
