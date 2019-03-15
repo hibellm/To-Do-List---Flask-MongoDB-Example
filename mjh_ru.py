@@ -6,11 +6,11 @@ mail=Mail(app)
 app.secret_key = "secret_key_987123"
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'marcus.mjh@gmail.com'
-app.config['MAIL_PASSWORD'] = 'Grifter319412'
+app.config['MAIL_USERNAME'] = 'xxx@gmail.com'
+app.config['MAIL_PASSWORD'] = 'xxx'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_DEFAULT_SENDER'] = 'marcus.mjh@gmail.com'
+app.config['MAIL_DEFAULT_SENDER'] = 'xxx@gmail.com'
 mail = Mail(app)
 
 
