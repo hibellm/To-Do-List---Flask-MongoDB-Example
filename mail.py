@@ -6,11 +6,11 @@ mail=Mail(app)
 app.secret_key = "secret_key_123878678"
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'marcus.mjh@gmail.com'
-app.config['MAIL_PASSWORD'] = 'Grifter319412'
+app.config['MAIL_USERNAME'] = 'xxx@gmail.com'
+app.config['MAIL_PASSWORD'] = 'xxx'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_DEFAULT_SENDER'] = 'marcus.mjh@gmail.com'
+app.config['MAIL_DEFAULT_SENDER'] = 'xxx@gmail.com'
 mail = Mail(app)
 
 
@@ -105,7 +105,7 @@ def index():
 
   <h1>Welcome to the Medical Data Hub</h1>
   <span>
-  <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NG42MGgzcmRlOTZsbTNjZ3JodnBmdGVpMGsgbWFyY3VzLmhpYmVsbEByb2NoZS5jb20&amp;tmsrc=marcus.hibell%40roche.com">
+  <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NG42MGgzcmRlOTZsbTNjZ3JodnBmdGVpMGsgbWFyY3VzLmhpYmVsbEByb2NoZS5jb20&amp;tmsrc=xxx">
   <img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en-GB.gif">
   </a>
   </span>
@@ -151,7 +151,7 @@ def index():
 
   <h1>Hello Medical Data Hub <br>Basics ILT Learners</h1>
   <span>
-  <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NG42MGgzcmRlOTZsbTNjZ3JodnBmdGVpMGsgbWFyY3VzLmhpYmVsbEByb2NoZS5jb20&amp;tmsrc=marcus.hibell%40roche.com">
+  <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NG42MGgzcmRlOTZsbTNjZ3JodnBmdGVpMGsgbWFyY3VzLmhpYmVsbEByb2NoZS5jb20&amp;tmsrcxxx">
   <img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en-GB.gif">
   </a>
   </span>
@@ -225,7 +225,7 @@ def index():
 
    # msghtml = str(msghead+request.values.get("msgtemp"))
 
-   # msg = Message('Hello ', html=msgtype,sender = 'marcus.mjh@gmail.com', recipients = ['marcus.mjh@gmail.com'])
+   # msg = Message('Hello ', html=msgtype,sender = 'xxx@gmail.com', recipients = ['xxx@gmail.com'])
    msg = Message('Hello', html=msghtml, recipients = [msgto])
    mail.send(msg)
 
