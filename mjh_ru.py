@@ -107,8 +107,8 @@ def index():
 
    # msghtml = str(msghead+request.values.get("msgtemp"))
 
-   # msg = Message('Hello ', html=msgtype,sender = 'marcus.mjh@gmail.com', recipients = ['marcus.mjh@gmail.com'])
-   msg = Message('Hello', html=msghtml, recipients = ['marcus.mjh@gmail.com'])
+   # msg = Message('Hello ', html=msgtype,sender = 'xxx@gmail.com', recipients = ['xxx@gmail.com'])
+   msg = Message('Hello', html=msghtml, recipients = ['xxx@gmail.com'])
    mail.send(msg)
 
    return render_template('ru.html')
